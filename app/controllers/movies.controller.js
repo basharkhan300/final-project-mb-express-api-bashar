@@ -119,3 +119,22 @@ exports.delete = (req, res) => {
           });
         });
 };
+
+
+// Find by condition
+
+exports.findAllCondition = (req, res) => {
+
+  Movie.findAll({
+    where: {Genre: 'Crime'}
+  })
+  .then((data) => {
+    res.send(data)
+  })
+  .catch((err) => {
+    res.status(500).send({
+      message: err.message || `Some error occured while retrieving movie`
+    })
+  })
+  
+}
