@@ -23,7 +23,7 @@ module.exports = (sequelize, Sequelize) => {
       },
 
       Ratings: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         
       },
 
