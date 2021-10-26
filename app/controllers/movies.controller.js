@@ -49,6 +49,7 @@ exports.findAll = (req, res) => {
 };
 
 
+// Retrieve single movie from database with id
 
 exports.findOne = (req, res) => {
   const id = req.params.id;
@@ -69,3 +70,26 @@ exports.findOne = (req, res) => {
     });
 };
 
+// Update column of the table in database for given id
+
+exports.update = (req,res) => {
+  const id = req.params.id;
+
+  Movie.update(req.body, {
+    where: { id: id },
+  }).then((data) => {
+    if(data == 1)
+    res.send({
+      message: `Updated successfully`
+    });
+    else 
+    res.send({
+      message: `Cannot update Movie with id=${id}.`
+    });
+  })
+  .catch(err => {
+    res.status(500).send({
+      message: `Error updating movie with id=${id}`
+    })
+  })
+};
