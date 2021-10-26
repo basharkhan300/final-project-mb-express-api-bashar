@@ -2,23 +2,34 @@ module.exports = (sequelize, Sequelize) => {
     const Movies = sequelize.define("movies", {
       title: {
         type: Sequelize.STRING,
-        allowNull: false
     },
     description: {
         type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
+    
     },
     production: {
         type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
-      }
-    });
+        
+      },
+
+      Director: {
+        type: Sequelize.STRING,
+        
+      },
+
+      Genre: {
+        type: Sequelize.STRING,
+        
+      },
+
+      Ratings: {
+        type: Sequelize.INTEGER,
+        
+      },
+
+    }, {
+      timestamps: false
+  });
   
     return Movies;
   };
