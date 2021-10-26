@@ -9,6 +9,9 @@ module.exports = app => {
     // Retrieve all movies
     router.get("/", movies.findAll);
 
+    
+        // Retrieve all crime genre
+        router.get("/condition", movies.findAllCondition)
 
     // Retrieve a single Movie with id
     router.get('/:id', movies.findOne);
@@ -19,6 +22,7 @@ module.exports = app => {
 
     // Delete a movie with id
     router.delete("/:id", movies.delete);
+
     
   
   
