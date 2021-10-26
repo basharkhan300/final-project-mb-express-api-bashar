@@ -14,6 +14,8 @@ module.exports = app => {
     router.get('/:id', movies.findOne);
 
     
+    // Update a movie with Id
+    router.put("/:id", movies.update)
     
   
   
