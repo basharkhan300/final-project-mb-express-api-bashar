@@ -8,5 +8,5 @@ module.exports = app => {
     router.get("/", movies.findAll);
   
   
-    app.use('/api/tutorials', router);
+    app.use('/api/movies', router);
   };
