@@ -14,6 +14,11 @@ const sequelize = new Sequelize(dbConfig.URL, {
   }
 });
 
+// To test the connection
+sequelize.authenticate()
+.then(() => console.log(`Database connected..`))
+.catch((err) => console.log(`Error: ${err}`))
+
 const db = {};
 
 db.Sequelize = Sequelize;
