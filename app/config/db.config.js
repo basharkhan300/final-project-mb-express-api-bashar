@@ -1,6 +1,7 @@
+require('dotenv').config()
+
 module.exports = {
-    URL: 'postgres://ztabresg:Eo44wYEojdesSWBaUBb6pf94Wefe5tUs@fanny.db.elephantsql.com/ztabresg',
-    HOST: "localhost",
+    URL: process.env.URL,
     dialect: "postgres",
     
   pool: {
