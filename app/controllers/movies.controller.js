@@ -48,7 +48,6 @@ exports.findAll = (req, res) => {
     });
 };
 
-
 // Retrieve single movie from database with id
 
 exports.findOne = (req, res) => {
@@ -70,26 +69,53 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Update column of the table in database for given id
+// Update  table in database for given id
 
-exports.update = (req,res) => {
+exports.update = (req, res) => {
   const id = req.params.id;
 
   Movie.update(req.body, {
     where: { id: id },
-  }).then((data) => {
-    if(data == 1)
-    res.send({
-      message: `Updated successfully`
-    });
-    else 
-    res.send({
-      message: `Cannot update Movie with id=${id}.`
-    });
   })
-  .catch(err => {
-    res.status(500).send({
-      message: `Error updating movie with id=${id}`
+    .then((data) => {
+      if (data == 1)
+        res.send({
+          message: `Updated successfully`,
+        });
+      else
+        res.send({
+          message: `Cannot update Movie with id=${id}.`,
+        });
     })
-  })
+    .catch((err) => {
+      res.status(500).send({
+        message: `Error updating movie with id=${id}`,
+      });
+    });
+};
+
+// Delete a movie with given id
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Movie.destroy({
+    where: { id: id },
+  }).then((data) => {
+    if (data == 1)
+      res.send({
+        message: `Movie deleted successfully`,
+      });
+    else
+      res
+        .send({
+          message: `Cannot delete Movie with Id= ${id}. Movie not found`,
+        })
+      })
+
+        .catch((err) => {
+          res.status(500).send({
+            message: `Could not delete movie with id= ${id}`,
+          });
+        });
 };
