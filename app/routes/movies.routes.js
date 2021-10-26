@@ -3,11 +3,17 @@ module.exports = app => {
   
     var router = require("express").Router();
   
-    // Create a new Tutorial
+    // Create a new movie
   router.post("/", movies.create);
 
-    // Retrieve all Tutorials
+    // Retrieve all movies
     router.get("/", movies.findAll);
+
+
+    // Retrieve a single Movie with id
+    router.get('/:id', movies.findOne);
+
+    
     
   
   
