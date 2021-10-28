@@ -1,18 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
     const Movies = sequelize.define("movies", {
-      title: {
+      Title: {
         type: Sequelize.STRING,
     },
-    description: {
+    Desc: {
         type: Sequelize.STRING,
     
     },
-    production: {
-        type: Sequelize.STRING,
-        
-      },
-
-      Director: {
+    Production: {
         type: Sequelize.STRING,
         
       },
@@ -26,7 +21,11 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.FLOAT,
         
       },
+      director_id:{
+          type:Sequelize.INTEGER,
+      }
 
+      
     }, {
       timestamps: false
   });
